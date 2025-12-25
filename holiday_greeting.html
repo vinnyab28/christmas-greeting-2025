@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>Merry Christmas! - From Vineeth</title>
+        <meta name="description"
+            content="Vineeth wishes you a Merry Christmas! Open this special Christmas greeting card!" />
+        <meta name="author" content="Vineeth" />
+        <meta name="keywords"
+            content="Christmas, Greetings, Biblical Christmas, Christmas Card, Holiday Wishes, Merry Christmas" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Merry Christmas! - Personalized Christmas Greetings" />
+        <meta property="og:description"
+            content="Vineeth wishes you a Merry Christmas! Open this special greeting card!" />
+        <meta property="og:site_name" content="Christmas Greetings" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Merry Christmas! - Personalized Christmas Greetings" />
+        <meta name="twitter:description"
+            content="Vineeth wishes you a Merry Christmas! Open this special greeting card!" />
+        <meta name="theme-color" content="#f8d7da" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Lato", sans-serif;
+                background: linear-gradient(135deg, #d4a5a5 0%, #e8c5c5 25%, #f5e6e6 50%, #e8c5c5 75%, #d4a5a5 100%);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                position: relative;
+                overflow-x: hidden;
+                background-attachment: fixed;
+            }
+
+            .snowflake {
+                position: fixed;
+                top: -10px;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 1em;
+                text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+                animation: fall linear infinite;
+                z-index: 1;
+            }
+
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh);
+                }
+            }
+
+            .card-container {
+                perspective: 2500px;
+                position: relative;
+                z-index: 10;
+            }
+
+            .card-book {
+                position: relative;
+                width: 420px;
+                height: 580px;
+                transform-style: preserve-3d;
+                transition: transform 1.2s ease, width 1.2s ease;
+            }
+
+            .card-book.open {
+                width: 840px;
+            }
+
+            .front-cover {
+                position: absolute;
+                width: 420px;
+                height: 580px;
+                border-radius: 4px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+                transform-origin: left center;
+                transform-style: preserve-3d;
+                transition: transform 1.2s ease;
+                z-index: 10;
+                left: 0;
+            }
+
+            .card-book.open .front-cover {
+                transform: translateX(420px) rotateY(-180deg);
+                box-shadow: 15px 0 40px rgba(0, 0, 0, 0.25);
+            }
+
+            .front-side {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                background: linear-gradient(to bottom, #f8d7da 0%, #f5c2c7 50%, #f8d7da 100%);
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+            }
+
+            .back-side {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+                background: linear-gradient(to bottom, #fff9fa 0%, #ffffff 50%, #fff9fa 100%);
+                border-radius: 4px 0 0 4px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 50px;
+                border-right: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            .cover-content {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .oval {
+                background: white;
+                border-radius: 4px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 30px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .christmas-decoration {
+                position: absolute;
+                font-size: 3.5em;
+                z-index: 1;
+            }
+
+            .decoration-top-left {
+                top: 40px;
+                left: 15px;
+            }
+
+            .decoration-top-right {
+                top: 40px;
+                right: 15px;
+            }
+
+            .decoration-bottom-left {
+                bottom: 60px;
+                left: 10px;
+                font-size: 4em;
+            }
+
+            .decoration-bottom-right {
+                bottom: 60px;
+                right: 10px;
+                font-size: 4em;
+            }
+
+            .cover-title {
+                font-family: "Playfair Display", serif;
+                font-size: 2.5em;
+                font-weight: 700;
+                color: #2c2c2c;
+                text-align: center;
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+
+            .cover-subtitle {
+                font-family: "Lato", sans-serif;
+                font-size: 1em;
+                color: #666;
+                font-weight: 300;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+
+            .name-input {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-bottom: 2px solid #d4a5a5;
+                background: transparent;
+                font-size: 1em;
+                font-family: "Lato", sans-serif;
+                text-align: center;
+                outline: none;
+                color: #2c2c2c;
+                margin-bottom: 25px;
+            }
+
+            .name-input::placeholder {
+                color: #aaa;
+                font-style: italic;
+            }
+
+            .name-input:focus {
+                border-bottom-color: #b08080;
+            }
+
+            .open-button {
+                background: linear-gradient(135deg, #c9999e 0%, #b08080 100%);
+                color: white;
+                border: none;
+                padding: 12px 40px;
+                font-size: 0.95em;
+                font-family: "Lato", sans-serif;
+                border-radius: 25px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                box-shadow: 0 4px 15px rgba(192, 128, 128, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .open-button:hover:not(:disabled) {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(192, 128, 128, 0.4);
+            }
+
+            .open-button:disabled {
+                background: #ccc;
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+
+            .inside-right {
+                position: absolute;
+                width: 420px;
+                height: 580px;
+                background: linear-gradient(to bottom, #fff9fa 0%, #ffffff 50%, #fff9fa 100%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 50px;
+                right: 0;
+                top: 0;
+                border-radius: 0 4px 4px 0;
+                box-shadow: 5px 15px 40px rgba(0, 0, 0, 0.25);
+                opacity: 0;
+                transition: opacity 0.55s ease 0.25s;
+            }
+
+            .card-book.open .inside-right {
+                opacity: 1;
+            }
+
+            .card-book.open .back-side {
+                z-index: 2;
+            }
+
+            .greeting-title {
+                font-family: "Playfair Display", serif;
+                font-size: 2.2em;
+                font-weight: 700;
+                color: #2c2c2c;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .greeting-name {
+                font-family: "Playfair Display", serif;
+                font-size: 2em;
+                font-weight: 700;
+                color: #b08080;
+                text-align: center;
+                margin: 15px 0;
+            }
+
+            .decorative-line {
+                width: 60px;
+                height: 2px;
+                background: linear-gradient(to right, transparent, #d4a5a5, transparent);
+                margin: 15px 0;
+            }
+
+            .greeting-emoji {
+                font-size: 1.8em;
+                margin: 15px 0;
+                opacity: 0.8;
+            }
+
+            .greeting-message {
+                font-family: "Lato", sans-serif;
+                font-size: 0.95em;
+                color: #555;
+                text-align: center;
+                line-height: 1.7;
+                margin: 15px 0;
+                font-weight: 300;
+            }
+
+            .greeting-from {
+                font-family: "Lato", sans-serif;
+                font-size: 0.9em;
+                color: #888;
+                text-align: center;
+                margin-top: 20px;
+                font-style: italic;
+            }
+
+            .close-button {
+                background: linear-gradient(135deg, #c9999e 0%, #b08080 100%);
+                color: white;
+                border: none;
+                padding: 10px 30px;
+                font-size: 0.85em;
+                font-family: "Lato", sans-serif;
+                border-radius: 25px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                box-shadow: 0 4px 15px rgba(192, 128, 128, 0.3);
+                transition: all 0.3s ease;
+                margin-top: 15px;
+            }
+
+            .close-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(192, 128, 128, 0.4);
+            }
+
+            @media (max-width: 950px) {
+                .card-book {
+                    width: 350px;
+                    height: 500px;
+                }
+
+                .card-book.open {
+                    width: 700px;
+                }
+
+                .card-book.open .front-cover {
+                    transform: translateX(350px) rotateY(-180deg);
+                    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.25);
+                }
+
+                .front-cover,
+                .inside-right {
+                    width: 350px;
+                    height: 500px;
+                }
+
+                .inside-right {
+                    padding: 35px;
+                }
+
+                .oval {
+                    padding: 35px 25px;
+                }
+
+                .cover-title {
+                    font-size: 2em;
+                }
+
+                .christmas-decoration {
+                    font-size: 2.8em;
+                }
+
+                .decoration-bottom-left,
+                .decoration-bottom-right {
+                    font-size: 3.5em;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .card-book {
+                    width: 90vw;
+                    max-width: 350px;
+                    height: 480px;
+                }
+
+                .card-book.open {
+                    width: 90vw;
+                    max-width: 350px;
+                    height: calc(480px * 2);
+                }
+
+                .front-cover {
+                    width: 90vw;
+                    max-width: 350px;
+                    height: 480px;
+                    transform-origin: top center;
+                }
+
+                .card-book.open .front-cover {
+                    transform: translateY(480px) rotateX(180deg);
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+                }
+
+                .inside-right {
+                    width: 90vw;
+                    max-width: 350px;
+                    height: 480px;
+                    right: auto;
+                    left: 0;
+                    top: 480px;
+                    bottom: auto;
+                    border-radius: 0 0 4px 4px;
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+                    padding: 30px 20px;
+                    transform: translateY(-480px);
+                    transition: opacity 0.55s ease 0.25s, transform 1.2s ease;
+                }
+
+                .card-book.open .inside-right {
+                    transform: translateY(0);
+                }
+
+                .back-side {
+                    transform: rotateX(180deg);
+                    border-right: none;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 4px 4px 0 0;
+                }
+
+                .oval {
+                    padding: 30px 20px;
+                }
+
+                .cover-title {
+                    font-size: 1.8em;
+                }
+
+                .cover-subtitle {
+                    font-size: 0.85em;
+                }
+
+                .name-input {
+                    font-size: 0.95em;
+                }
+
+                .open-button {
+                    padding: 10px 30px;
+                    font-size: 0.85em;
+                }
+
+                .greeting-title {
+                    font-size: 1.7em;
+                }
+
+                .greeting-name {
+                    font-size: 1.6em;
+                }
+
+                .greeting-message {
+                    font-size: 0.9em;
+                }
+
+                .decorative-line {
+                    margin: 2px 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="snow-container"></div>
+        <div class="card-container">
+            <div class="card-book" id="cardBook">
+                <div class="front-cover">
+                    <div class="front-side">
+                        <div class="cover-content">
+                            <div class="christmas-decoration decoration-top-left">🎄</div>
+                            <div class="christmas-decoration decoration-top-right">⛄</div>
+                            <div class="christmas-decoration decoration-bottom-left">🎁</div>
+                            <div class="christmas-decoration decoration-bottom-right">❄️</div>
+                            <div class="oval">
+                                <h1 class="cover-title">
+                                    MERRY
+                                    <br />
+                                    CHRISTMAS
+                                </h1>
+                                <p class="cover-subtitle">Greetings</p>
+                                <input type="text" id="nameInput" class="name-input" placeholder="Enter your name..."
+                                    maxlength="30" />
+                                <button class="open-button" id="openBtn" disabled>Open</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back-side">
+                        <div class="greeting-emoji">🎄 ✨ 🕊️</div>
+                        <h2 class="greeting-title">Merry Christmas</h2>
+                        <div class="decorative-line"></div>
+                        <div class="greeting-name" id="greetingName"></div>
+                        <div class="decorative-line"></div>
+                        <p class="greeting-message">"For unto us a child is born, unto us a son is given" - Isaiah 9:6
+                        </p>
+                        <p class="greeting-message">May the light of Christ fill your heart with peace, hope, and
+                            everlasting joy this Christmas season.</p>
+                    </div>
+                </div>
+                <div class="inside-right">
+                    <div class="greeting-emoji">⭐ 🌟 ✨</div>
+                    <p class="greeting-message">"Glory to God in the highest, and on earth peace, good will toward men"
+                        - Luke 2:14</p>
+                    <p class="greeting-message">May God's abundant blessings be upon you and your loved ones. Wishing
+                        you a season filled with divine love, heavenly peace, and the joy of His presence.</p>
+                    <p class="greeting-from">
+                        With love and prayers
+                        <br />
+                        - Vineeth
+                    </p>
+                    <button class="close-button" id="closeBtn">Close</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function createSnowflakes() {
+                const c = document.querySelector(".snow-container");
+                if (!c) return;
+                for (let i = 0; i < 50; i++) {
+                    const s = document.createElement("div");
+                    s.className = "snowflake";
+                    s.textContent = "❄";
+                    s.style.left = Math.random() * 100 + "%";
+                    s.style.animationDuration = Math.random() * 3 + 2 + "s";
+                    s.style.animationDelay = Math.random() * 5 + "s";
+                    s.style.opacity = Math.random();
+                    s.style.fontSize = Math.random() * 10 + 10 + "px";
+                    c.appendChild(s);
+                }
+            }
+            const nameInput = document.getElementById("nameInput"),
+                openBtn = document.getElementById("openBtn"),
+                closeBtn = document.getElementById("closeBtn"),
+                cardBook = document.getElementById("cardBook"),
+                greetingName = document.getElementById("greetingName");
+            nameInput.addEventListener("input", function () {
+                openBtn.disabled = this.value.trim().length === 0;
+            });
+            nameInput.addEventListener("keypress", function (e) {
+                if (e.key === "Enter" && this.value.trim().length > 0) {
+                    openCard();
+                }
+            });
+            function openCard() {
+                const n = nameInput.value.trim();
+                if (n) {
+                    greetingName.textContent = n;
+                    cardBook.classList.add("open");
+                }
+            }
+            function closeCard() {
+                cardBook.classList.remove("open");
+                nameInput.value = "";
+                openBtn.disabled = true;
+                setTimeout(() => nameInput.focus(), 1200);
+            }
+            openBtn.addEventListener("click", openCard);
+            closeBtn.addEventListener("click", closeCard);
+            createSnowflakes();
+            nameInput.focus();
+        </script>
+    </body>
+
+</html>
